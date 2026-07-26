@@ -1,0 +1,38 @@
+.users-styling {
+  background-color: #e0b1cb;
+  width: 300px; /* Controls how wide the div is */
+  height: 300px;
+  font-style: oblique;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.user-info {
+  margin: 5%;
+  color: #000000;
+}
+
+.btn-general {
+  color: #000000;
+  margin: 1%;
+  padding: 1%;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 10%;
+}
+
+.button-show {
+  color: #000000;
+  background-color: #219ebc;
+}
+
+.no-more {
+  background-color: #d00000;
+}
+
+.add-user-button {
+  background-color: #0b6e4f;
+}

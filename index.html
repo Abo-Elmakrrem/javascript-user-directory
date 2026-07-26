@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="show-user" class="button-show btn-general" type="button">
+      show next user
+    </button>
+    <div class="input-form-users">
+      <label name="name">name: </label>
+      <input
+        type="text"
+        name="name"
+        id="name-input"
+        autocomplete="off"
+        placeholder="pleas enter a name"
+      />
+      <br />
+      <label age="age">age: </label>
+      <input
+        type="number"
+        name="age"
+        id="age-input"
+        autocomplete="off"
+        placeholder="pleas enter a age"
+      />
+      <br />
+      <label city="city">city: </label>
+      <input
+        type="text"
+        name="city"
+        id="city-input"
+        autocomplete="off"
+        placeholder="pleas enter a city"
+      />
+      <br />
+      <button
+        class="add-user-button btn-general"
+        type="button"
+        id="add-user-button"
+      >
+        add user to the list
+      </button>
+      <br />
+      <span id="user-added"></span>
+    </div>
+
+    <div id="users" class=""></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
