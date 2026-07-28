@@ -19,3 +19,15 @@ The purpose of this project is to improve my understanding of JavaScript by work
 - Methods and properties
 - DOM manipulation
 - Event handling
+
+## Roadmap
+
+- [x] Display users
+- [x] Add users
+- [ ] Validate user input
+- [ ] Delete users
+- [ ] Edit users
+- [ ] Search users
+- [ ] Save data with localStorage
+- [ ] Fetch users from an API
+- [ ] Rebuild the project with React
