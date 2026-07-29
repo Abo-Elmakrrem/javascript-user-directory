@@ -5,21 +5,6 @@ const usersContainer = document.getElementById("users");
 const showNextUserButton = document.getElementById("show-user");
 const addUserButton = document.getElementById("add-user-button");
 const spanUserAdded = document.getElementById("user-added");
-
-function addNewUser() {
-  console.log(nameInput.value, ageInput.value, cityInput.value);
-  const newUserObject = { name: "", age: 0, city: "" };
-  newUserObject.name = nameInput.value;
-  newUserObject.age = ageInput.value;
-  newUserObject.city = cityInput.value;
-  users.push(newUserObject);
-  console.log(newUserObject);
-  nameInput.value = "";
-  ageInput.value = "";
-  cityInput.value = "";
-  spanUserAdded.innerHTML = "user has been added";
-}
-addUserButton.addEventListener("click", addNewUser);
 // array of users
 const users = [
   {
@@ -38,26 +23,55 @@ const users = [
     city: "cairo",
   },
 ];
-let currentIndex = 0;
+
+// adding new user function
+function addNewUser() {
+  const nameValue = nameInput.value.trim();
+  const ageValue = ageInput.value;
+  const cityValu = cityInput.value.trim();
+  if (nameValue === "") {
+    spanUserAdded.innerHTML = "Error please enter a valid name";
+    return;
+  }
+  if (ageValue <= 0) {
+    spanUserAdded.innerHTML = "Error please enter a valid age";
+    return;
+  }
+  if (cityValu === "") {
+    spanUserAdded.innerHTML = "Error please enter a valid city";
+    return;
+  }
+  const newUserObject = { name: nameValue, age: ageValue, city: cityValu };
+
+  users.push(newUserObject);
+  nameInput.value = "";
+  ageInput.value = "";
+  cityInput.value = "";
+  spanUserAdded.innerHTML = "user has been added";
+  console.log(users);
+  console.log(typeof ageValue);
+}
+addUserButton.addEventListener("click", addNewUser);
+
 // show user function
+let currentIndex = 0;
 function showUser() {
   const currentUser = users[currentIndex];
   if (currentIndex < users.length) {
     const userCard = document.createElement("div");
-    const h2 = document.createElement("h2");
-    const h3 = document.createElement("h3");
-    const h3_City = document.createElement("h3");
+    const nameHeader = document.createElement("h2");
+    const ageHeader = document.createElement("h3");
+    const cityHeader = document.createElement("h3");
     userCard.className = "users-styling";
-    h2.textContent = currentUser.name;
-    h3.textContent = currentUser.age;
-    h3_City.textContent = currentUser.city;
-    h2.className = "user-info";
-    h3.className = "user-info";
-    h3_City.className = "user-info";
-
-    userCard.appendChild(h2);
-    userCard.appendChild(h3);
-    userCard.appendChild(h3_City);
+    nameHeader.textContent = currentUser.name;
+    ageHeader.textContent = currentUser.age;
+    cityHeader.textContent = currentUser.city;
+    nameHeader.className = "user-info";
+    ageHeader.className = "user-info";
+    cityHeader.className = "user-info";
+    userCard.appendChild(nameHeader);
+    userCard.appendChild(ageHeader);
+    userCard.appendChild(cityHeader);
     usersContainer.appendChild(userCard);
     currentIndex++;
   } else if (currentIndex === users.length) {
