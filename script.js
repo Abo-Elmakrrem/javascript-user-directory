@@ -27,17 +27,20 @@ const users = [
 // adding new user function
 function addNewUser() {
   const nameValue = nameInput.value.trim();
-  const ageValue = ageInput.value;
+  const ageValue = Number(ageInput.value);
   const cityValue = cityInput.value.trim();
-  if (nameValue === "") {
+  if (!nameValue) {
     spanUserAdded.innerHTML = "Error please enter a valid name";
     return;
   }
-  if (ageValue <= 0) {
+  if (isNaN(ageValue)) {
+    spanUserAdded.innerHTML = "Error please enter a valid age";
+    return;
+  } else if (ageValue <= 0) {
     spanUserAdded.innerHTML = "Error please enter a valid age";
     return;
   }
-  if (cityValue === "") {
+  if (!cityValue) {
     spanUserAdded.innerHTML = "Error please enter a valid city";
     return;
   }
@@ -62,16 +65,27 @@ function showUser() {
     const nameHeader = document.createElement("h2");
     const ageHeader = document.createElement("h3");
     const cityHeader = document.createElement("h3");
+    const deleteButton = document.createElement("button");
     userCard.className = "users-styling";
     nameHeader.textContent = currentUser.name;
     ageHeader.textContent = currentUser.age;
     cityHeader.textContent = currentUser.city;
+    deleteButton.textContent = "delete user";
     nameHeader.className = "user-info";
     ageHeader.className = "user-info";
     cityHeader.className = "user-info";
+    deleteButton.className = "no-more";
+    deleteButton.addEventListener("click", function () {
+      deleteButton.parentElement.remove();
+      const userIndex = users.findIndex((user) => user === currentUser);
+      users.splice(userIndex, 1);
+      console.log(users, "inside the delete function");
+    });
+    // console.log(users, "show user fun");
     userCard.appendChild(nameHeader);
     userCard.appendChild(ageHeader);
     userCard.appendChild(cityHeader);
+    userCard.appendChild(deleteButton);
     usersContainer.appendChild(userCard);
     currentIndex++;
   } else if (currentIndex === users.length) {
@@ -90,13 +104,3 @@ function showUser() {
   }
 }
 showNextUserButton.addEventListener("click", showUser);
-console.log(!"ahmed");
-console.log(!"");
-console.log(!0);
-console.log(!1);
-
-console.log(![]);
-console.log(!{});
-
-console.log(!![]);
-console.log(!!{});
