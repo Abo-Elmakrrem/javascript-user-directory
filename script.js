@@ -28,7 +28,7 @@ const users = [
 function addNewUser() {
   const nameValue = nameInput.value.trim();
   const ageValue = ageInput.value;
-  const cityValu = cityInput.value.trim();
+  const cityValue = cityInput.value.trim();
   if (nameValue === "") {
     spanUserAdded.innerHTML = "Error please enter a valid name";
     return;
@@ -37,11 +37,11 @@ function addNewUser() {
     spanUserAdded.innerHTML = "Error please enter a valid age";
     return;
   }
-  if (cityValu === "") {
+  if (cityValue === "") {
     spanUserAdded.innerHTML = "Error please enter a valid city";
     return;
   }
-  const newUserObject = { name: nameValue, age: ageValue, city: cityValu };
+  const newUserObject = { name: nameValue, age: ageValue, city: cityValue };
 
   users.push(newUserObject);
   nameInput.value = "";
@@ -90,3 +90,13 @@ function showUser() {
   }
 }
 showNextUserButton.addEventListener("click", showUser);
+console.log(!"ahmed");
+console.log(!"");
+console.log(!0);
+console.log(!1);
+
+console.log(![]);
+console.log(!{});
+
+console.log(!![]);
+console.log(!!{});
